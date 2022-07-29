@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:44:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/29 20:18:33 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/29 22:30:42 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG__BONUS_H
 
 # include "../libft/libft.h"
 # include <fcntl.h>
@@ -53,6 +53,7 @@ typedef enum e_reason
 	C_BAD_MAP_COUNT_P = 4,
 	C_BAD_MAP_COUNT_E = 3,
 	C_BAD_MAP_COUNT_C = 2,
+	C_BAD_MAP_COUNT_K = 1000,
 	E_FAIL = 1,
 	E_SUCC = 0
 }	t_reason;
@@ -65,6 +66,7 @@ typedef struct s_map
 	int		nb_c;
 	int		nb_p;
 	int		nb_e;
+	int		nb_k;
 	void	*wall;
 	void	*collectable;
 	void	*exit;
@@ -83,9 +85,15 @@ typedef struct s_player
 	int		can_exit;
 }	t_player;
 
+typedef struct s_enemy
+{
+	void	*sprite[11];
+}	t_enemy;
+
 typedef struct s_game
 {
 	t_player	*player;
+	t_enemy		*enemy;
 	void		*mlx;
 	void		*win;
 	int			img_size;
@@ -93,7 +101,7 @@ typedef struct s_game
 }	t_game;
 
 //UTILS
-# define VERSION "SO_LONG: MICE 0.4 (Linux)"
+# define VERSION "SO_LONG: MICE 0.4 (BONUS)(Linux)"
 # define EXT ".ber"
 # define MAX_WIDTH 1650
 # define MAX_HEIGTH 768
@@ -109,6 +117,7 @@ int		ft_strlen_sl(char *line);
 void	ft_close(t_game *game, int ctype);
 void	ft_destroy_data(t_game *game);
 void	ft_destroy_player(t_game *game);
+void	ft_destroy_enemy(t_game *game);
 //MAP
 void	ft_map_free(t_game *game);
 void	ft_init_map(char *map_file, t_game *game);
@@ -120,6 +129,7 @@ int		ft_destroy(t_game *game);
 int		ft_key(int key, t_game *game);
 //SPRITE
 int		ft_update(t_game *game);
+void	ft_put_data_bis(t_game *game, int y, int x, int id);
 //PLAYER
 void	ft_init_player(t_game *game);
 void	ft_player_data(t_game *game, int x, int y, int id);
@@ -135,5 +145,11 @@ void	ft_move_w(t_game *game);
 void	ft_move_s(t_game *game);
 void	ft_move_a(t_game *game);
 void	ft_move_d(t_game *game);
+//ENEMY
+void	ft_enemy_data(t_game *game, int x, int y, int id);
+void	ft_check_k_count(t_game *game);
+void	ft_put_enemy_image(t_game *game, char *path, int id, char type);
+void	ft_init_enemy(t_game *game);
+int		ft_check_k(t_game *game, int y, int x);
 
 #endif
