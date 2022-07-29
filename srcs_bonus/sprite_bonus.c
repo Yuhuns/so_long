@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 21:50:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/29 22:31:36 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/29 22:54:10 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,24 @@ static void	ft_counter(t_game *game)
 	char	*move_count;
 	char	*cheese_count;
 	char	*player_cheese;
+	int		color;
 
+	if (game->player->get_cheese == game->map->nb_c)
+		color = 0x0008CC0A;
+	else
+		color = 0x00FF0000;
 	move_count = ft_itoa(game->player->nbr_count);
 	cheese_count = ft_itoa(game->map->nb_c);
 	player_cheese = ft_itoa(game->player->get_cheese);
-	mlx_string_put(game->mlx, game->win, 5, 20, 0x00FFFFFF,
+	mlx_string_put(game->mlx, game->win, 5, 20, 0x00FFFF00,
 		"Moves:");
 	mlx_string_put(game->mlx, game->win, 5, 35, 0x00FFFFFF, move_count);
-	mlx_string_put(game->mlx, game->win, 52, 21, 0x00FFFFFF,
+	mlx_string_put(game->mlx, game->win, 52, 21, 0x00FFFF00,
 		"Cheese:");
-	mlx_string_put(game->mlx, game->win, 52, 35, 0x00FFFFFF, player_cheese);
+	mlx_string_put(game->mlx, game->win, 52, 35, color, player_cheese);
 	mlx_string_put(game->mlx, game->win, 67, 35, 0x00FFFFFF,
 		"/");
-	mlx_string_put(game->mlx, game->win, 77, 35, 0x00FFFFFF, cheese_count);
+	mlx_string_put(game->mlx, game->win, 77, 35, color, cheese_count);
 	free(move_count);
 	free(cheese_count);
 	free(player_cheese);
