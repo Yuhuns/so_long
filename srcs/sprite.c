@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 21:50:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/27 17:41:48 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/29 17:33:09 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	ft_counter(t_game *game)
 int	ft_update(t_game *game)
 {
 	ft_anti_afk(game);
-	ft_usleep(game->player->anim_count);
+	usleep(game->player->anim_count);
 	ft_sprite(game);
 	ft_counter(game);
 	return (E_SUCC);

@@ -762,3 +762,4 @@ struct s_col_name mlx_col_name[] =
  { "none", -1 },
  { 0, 0 }
 };
+

@@ -20,7 +20,7 @@ CC = gcc
 all: $(NAME)
 
 %.o: %.c
-	$(CC) -g3 -Wall -Wextra -Werror -I/usr/include -Ilibft -Imlx_linux -O3 -c $< -o $@
+	$(CC) -Wall -Wextra -Werror -I/usr/include -Ilibft -Imlx_linux -O3 -c $< -o $@
 
 $(NAME): $(OBJ) 
 	make -C libft

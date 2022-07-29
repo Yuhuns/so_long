@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:44:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/27 17:22:25 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/29 17:38:13 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include "../libft/libft.h"
-# include "valgrind/valgrind.h"
 # include <fcntl.h>
 # include "../mlx_linux/mlx.h"
 
@@ -95,7 +94,7 @@ typedef struct s_game
 }	t_game;
 
 //UTILS
-# define VERSION "SO_LONG: MICE 0.2 (Linux)"
+# define VERSION "SO_LONG: MICE 0.3 (Linux)"
 # define EXT ".ber"
 # define MAX_WIDTH 1650
 # define MAX_HEIGTH 768
