@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 21:54:21 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/29 17:36:06 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 16:01:21 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_init_player(t_game *game)
 	game->player->nbr_count = 0;
 	game->player->x = 0;
 	game->player->y = 0;
-	game->player->anim_count = 20000;
+	game->player->anim_count = 25000;
 	game->player->anti_afk = -1;
 	game->player->get_cheese = 0;
 	game->player->can_exit = FALSE;
