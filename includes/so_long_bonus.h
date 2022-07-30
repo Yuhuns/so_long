@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:44:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/29 22:57:36 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 11:19:49 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,13 @@ typedef struct s_game
 }	t_game;
 
 //UTILS
-# define VERSION "SO_LONG: MICE 0.5 (BONUS)(Linux)"
+# define VERSION "SO_LONG: MICE 0.5a (BONUS)(Linux)"
 # define EXT ".ber"
 # define MAX_WIDTH 1650
 # define MAX_HEIGTH 768
 # define MIN_WIDTH 336
 # define MIN_HEIGTH 144
 # define MULT 48
-# define EXT ".ber"
 
 //UTILS
 char	*ft_strjoin_sl(char *s1, char *s2, char charset);
