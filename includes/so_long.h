@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:44:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 21:44:36 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 23:03:04 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct s_game
 }	t_game;
 
 //UTILS
-# define VERSION "SO_LONG: MICE 0.7a (Linux)"
+# define VERSION "SO_LONG: MICE 0.7b (Linux)"
 # define EXT ".ber"
 # define MAX_WIDTH 1650
 # define MAX_HEIGTH 768
@@ -104,6 +104,7 @@ typedef struct s_game
 //UTILS
 char	*ft_strjoin_sl(char *s1, char *s2, char charset);
 int		ft_strlen_sl(char *line);
+void	ft_arounded_wall(t_game *game, int y, int x);
 //FREE
 void	ft_close(t_game *game, int ctype);
 void	ft_destroy_data(t_game *game);
@@ -119,6 +120,7 @@ int		ft_destroy(t_game *game);
 int		ft_key(int key, t_game *game);
 //SPRITE
 int		ft_update(t_game *game);
+void	ft_put_data_bis(t_game *game, int y, int x, int id);
 //PLAYER
 void	ft_init_player(t_game *game);
 void	ft_player_data(t_game *game, int x, int y, int id);

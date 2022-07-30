@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 21:50:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 20:39:49 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 23:09:27 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@ static void	ft_put_data(t_game *game, int id)
 	int	x;
 	int	y;
 
-	mlx_clear_window(game->mlx, game->win);
+	if (id % 2)
+		mlx_clear_window(game->mlx, game->win);
 	y = 0;
 	while (game->map.maps[y])
 	{
 		x = 0;
 		while (game->map.maps[y][x])
 		{
-			if (game->map.maps[y][x] == 'P')
-				ft_player_data(game, x, y, id);
-			else if (game->map.maps[y][x] == '1')
+			if (game->map.maps[y][x] == '1')
 				mlx_put_image_to_window(game->mlx, game->win, game->map.wall,
 					x * MULT, y * MULT);
 			else if (game->map.maps[y][x] == 'C')
@@ -35,6 +34,7 @@ static void	ft_put_data(t_game *game, int id)
 			else if (game->map.maps[y][x] == 'E')
 				mlx_put_image_to_window(game->mlx, game->win,
 					game->map.exit, x * MULT, y * MULT);
+			ft_put_data_bis(game, y, x, id);
 			x++;
 		}
 		y++;
@@ -46,6 +46,7 @@ static void	ft_sprite(t_game *game)
 	static int	anim_id = 0;
 
 	ft_put_data(game, anim_id);
+	ft_arounded_wall(game, game->player.y, game->player.x);
 	anim_id++;
 	if (anim_id == 10)
 		anim_id = 0;

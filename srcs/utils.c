@@ -6,11 +6,29 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 01:01:19 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/27 16:20:15 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 23:07:17 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	ft_put_data_bis(t_game *game, int y, int x, int id)
+{
+	if (game->map.maps[y][x] == 'P')
+		ft_player_data(game, x, y, id);
+}
+
+void	ft_arounded_wall(t_game *game, int y, int x)
+{
+	if (game->map.maps[y - 1][x] == '1'
+		&& game->map.maps[y + 1][x] == '1'
+		&& game->map.maps[y][x - 1] == '1'
+		&& game->map.maps[y][x + 1] == '1')
+	{
+		ft_printf("GAME OVER\nBlocked by 4 walls...");
+		ft_destroy(game);
+	}
+}
 
 int	ft_strlen_sl(char *line)
 {

@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 21:50:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 21:24:17 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 22:54:50 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static void	ft_put_data(t_game *game, int id)
 	int	x;
 	int	y;
 
-	mlx_clear_window(game->mlx, game->win);
+	if (id % 2)
+		mlx_clear_window(game->mlx, game->win);
 	y = 0;
 	while (game->map.maps[y])
 	{
