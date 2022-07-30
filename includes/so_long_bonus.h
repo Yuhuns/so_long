@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:44:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 16:02:05 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 21:05:32 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,16 +92,16 @@ typedef struct s_enemy
 
 typedef struct s_game
 {
-	t_player	*player;
-	t_enemy		*enemy;
+	t_player	player;
+	t_enemy		enemy;
+	t_map		map;
 	void		*mlx;
 	void		*win;
 	int			img_size;
-	t_map		*map;
 }	t_game;
 
 //UTILS
-# define VERSION "SO_LONG: MICE 0.6c (BONUS)(Linux)"
+# define VERSION "SO_LONG: MICE 0.7 (BONUS)(Linux)"
 # define EXT ".ber"
 # define MAX_WIDTH 1650
 # define MAX_HEIGTH 768
@@ -148,7 +148,6 @@ void	ft_move_d(t_game *game);
 void	ft_enemy_data(t_game *game, int x, int y, int id);
 void	ft_check_k_count(t_game *game);
 void	ft_put_enemy_image(t_game *game, char *path, int id, char type);
-void	ft_init_enemy(t_game *game);
 int		ft_check_k(t_game *game, int y, int x);
 
 #endif

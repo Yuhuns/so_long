@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:16:58 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/27 16:57:39 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 20:39:49 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_destroy_data(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->map->wall);
-	mlx_destroy_image(game->mlx, game->map->exit);
-	mlx_destroy_image(game->mlx, game->map->collectable);
+	mlx_destroy_image(game->mlx, game->map.wall);
+	mlx_destroy_image(game->mlx, game->map.exit);
+	mlx_destroy_image(game->mlx, game->map.collectable);
 }
 
 void	ft_destroy_player(t_game *game)
@@ -25,7 +25,7 @@ void	ft_destroy_player(t_game *game)
 
 	i = 0;
 	while (i < 11)
-		mlx_destroy_image(game->mlx, game->player->sprite[i++]);
+		mlx_destroy_image(game->mlx, game->player.sprite[i++]);
 }
 
 int	ft_destroy(t_game *game)

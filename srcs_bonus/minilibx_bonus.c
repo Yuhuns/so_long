@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:08:41 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/29 18:28:08 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 21:04:27 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	ft_init_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, game->map->width * MULT,
-			game->map->heigth * MULT, VERSION);
+	if (!game->mlx)
+		return ;
+	game->win = mlx_new_window(game->mlx, game->map.width * MULT,
+			game->map.heigth * MULT, VERSION);
 	ft_init_image(game);
 	mlx_key_hook(game->win, ft_key, game);
 	mlx_hook(game->win, 2, (1L << 0), ft_close_key, game);

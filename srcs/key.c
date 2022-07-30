@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:29:01 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/27 15:25:46 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 20:39:49 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	ft_key(int key, t_game *game)
 		ft_move_a(game);
 	else if (key == D || key == RIGHT)
 		ft_move_d(game);
-	if (game->player->move == TRUE)
+	if (game->player.move == TRUE)
 	{
-		game->player->anti_afk = FALSE;
-		game->player->move = FALSE;
-		ft_printf("Move count : %d\n", game->player->nbr_count);
+		game->player.anti_afk = FALSE;
+		game->player.move = FALSE;
+		ft_printf("Move count : %d\n", game->player.nbr_count);
 	}
 	return (E_SUCC);
 }

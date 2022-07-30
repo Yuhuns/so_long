@@ -6,19 +6,11 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 01:01:19 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/29 22:31:49 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 20:41:56 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
-
-void	ft_put_data_bis(t_game *game, int y, int x, int id)
-{
-	if (game->map->maps[y][x] == 'P')
-		ft_player_data(game, x, y, id);
-	else if (game->map->maps[y][x] == 'K')
-		ft_enemy_data(game, x, y, id);
-}
 
 int	ft_strlen_sl(char *line)
 {

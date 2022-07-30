@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 05:14:14 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/29 19:12:27 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 20:39:49 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ static void	ft_put_image(t_game *game, char *path, int id, char type)
 
 	path2 = ft_strjoin(path, ".xpm");
 	if (type == 'P')
-		game->player->sprite[id] = mlx_xpm_file_to_image(game->mlx,
+		game->player.sprite[id] = mlx_xpm_file_to_image(game->mlx,
 				path2,
 				&game->img_size,
 				&game->img_size);
 	else if (type == 'E')
-		game->map->exit = mlx_xpm_file_to_image(game->mlx,
+		game->map.exit = mlx_xpm_file_to_image(game->mlx,
 				path2,
 				&game->img_size,
 				&game->img_size);
 	else if (type == 'C')
-		game->map->collectable = mlx_xpm_file_to_image(game->mlx,
+		game->map.collectable = mlx_xpm_file_to_image(game->mlx,
 				path2,
 				&game->img_size,
 				&game->img_size);
 	else if (type == '1')
-		game->map->wall = mlx_xpm_file_to_image(game->mlx,
+		game->map.wall = mlx_xpm_file_to_image(game->mlx,
 				path2,
 				&game->img_size,
 				&game->img_size);

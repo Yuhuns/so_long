@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 18:51:11 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 11:19:32 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 20:42:10 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_enemy_data(t_game *game, int x, int y, int id)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->enemy->sprite[id],
+		game->enemy.sprite[id],
 		x * MULT, y * MULT);
 }
 
 void	ft_check_k_count(t_game *game)
 {
-	if (game->map->nb_k <= 0)
+	if (game->map.nb_k <= 0)
 		ft_close(game, C_BAD_MAP_COUNT_K);
 }
 
@@ -30,12 +30,12 @@ int	ft_check_k(t_game *game, int y, int x)
 	char	*dead;
 
 	dead = "GAME OVER\nYou get killed by a fly cheese vampire !\n";
-	if (game->map->maps[y][x] == 'K')
+	if (game->map.maps[y][x] == 'K')
 	{
 		ft_printf("%sYou miss %d cheese(s) and lost %d cheese(s) !\n",
 			dead,
-			game->map->nb_c - game->player->get_cheese,
-			game->player->get_cheese);
+			game->map.nb_c - game->player.get_cheese,
+			game->player.get_cheese);
 		ft_destroy(game);
 		return (TRUE);
 	}
@@ -45,15 +45,16 @@ int	ft_check_k(t_game *game, int y, int x)
 void	ft_put_enemy_image(t_game *game, char *path, int id, char type)
 {
 	if (type == 'K')
-		game->enemy->sprite[id] = mlx_xpm_file_to_image(game->mlx,
+		game->enemy.sprite[id] = mlx_xpm_file_to_image(game->mlx,
 				path,
 				&game->img_size,
 				&game->img_size);
 }
 
-void	ft_init_enemy(t_game *game)
+void	ft_put_data_bis(t_game *game, int y, int x, int id)
 {
-	game->enemy = (t_enemy *)malloc(sizeof(t_enemy));
-	if (!game->enemy)
-		return ;
+	if (game->map.maps[y][x] == 'P')
+		ft_player_data(game, x, y, id);
+	else if (game->map.maps[y][x] == 'K')
+		ft_enemy_data(game, x, y, id);
 }

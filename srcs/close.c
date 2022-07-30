@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 05:11:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/27 16:18:31 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 20:43:17 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	ft_map_free(t_game *game)
 	size_t	i;
 
 	i = -1;
-	while (game->map->maps[++i])
-		free(game->map->maps[i]);
-	free(game->map->maps);
+	while (game->map.maps[++i])
+		free(game->map.maps[i]);
+	free(game->map.maps);
 }
 
 void	ft_close(t_game *game, int c_type)
@@ -45,11 +45,9 @@ void	ft_close(t_game *game, int c_type)
 	ft_error(c_type);
 	if (c_type != C_BAD_MAP_EXT)
 	{
-		if (game->map->maps)
+		if (game->map.maps)
 			ft_map_free(game);
-		free(game->map);
 	}
-	free(game->player);
 	free(game);
 	exit(E_SUCC);
 }
@@ -77,23 +75,23 @@ void	ft_check_wall(t_game *game)
 
 	x = 0;
 	y = 0;
-	len = game->map->width - 1;
-	while (game->map->maps[y][x])
+	len = game->map.width - 1;
+	while (game->map.maps[y][x])
 	{
-		if (game->map->maps[y][x++] != '1')
+		if (game->map.maps[y][x++] != '1')
 			ft_close(game, C_BAD_MAP_WALL);
 	}
 	y++;
-	while (game->map->maps[y])
+	while (game->map.maps[y])
 	{
-		if (game->map->maps[y][0] != '1' || game->map->maps[y][len] != '1')
+		if (game->map.maps[y][0] != '1' || game->map.maps[y][len] != '1')
 			ft_close(game, C_BAD_MAP_WALL);
 		y++;
 	}
 	x = 0;
-	while (game->map->maps[y - 1][x])
+	while (game->map.maps[y - 1][x])
 	{
-		if (game->map->maps[y - 1][x++] != '1')
+		if (game->map.maps[y - 1][x++] != '1')
 			ft_close(game, C_BAD_MAP_WALL);
 	}
 }
