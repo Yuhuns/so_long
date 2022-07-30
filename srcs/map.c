@@ -12,6 +12,8 @@
 
 #include "../includes/so_long.h"
 
+//SECU nbr_line
+//CMD: ln -s /dev/urandom rand_map.ber | ./so_long ./rand_map.ber
 static void	ft_read_map(int fd, t_game *game)
 {
 	char	*map_line;
