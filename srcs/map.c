@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 05:10:54 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 20:40:38 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 21:37:31 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ static void	ft_read_map(int fd, t_game *game)
 {
 	char	*map_line;
 	char	*line;
+	int		nbr_line;
 
+	nbr_line = 0;
 	map_line = NULL;
 	line = NULL;
 	while (TRUE)
@@ -24,6 +26,9 @@ static void	ft_read_map(int fd, t_game *game)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
+		else if (nbr_line >= 500)
+			ft_close(game, C_BAD_MAP);
+		nbr_line++;
 		map_line = ft_strjoin_sl(map_line, line, '=');
 		free(line);
 	}

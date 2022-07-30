@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:44:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 21:05:32 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 21:44:32 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ typedef struct s_game
 }	t_game;
 
 //UTILS
-# define VERSION "SO_LONG: MICE 0.7 (BONUS)(Linux)"
+# define VERSION "SO_LONG: MICE 0.7a (BONUS)(Linux)"
 # define EXT ".ber"
 # define MAX_WIDTH 1650
 # define MAX_HEIGTH 768
