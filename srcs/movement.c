@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:16:41 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/27 16:59:08 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 15:11:08 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ft_move_w(t_game *game)
 		if (!ft_check_e(game, y - 1, x))
 		{
 			game->player->y -= 1;
+			if (game->map->maps[y][x] != 'P')
+				game->map->maps[y][x] = '1';
 			ft_check_c(game);
 			game->player->move = TRUE;
 			game->player->nbr_count += 1;
@@ -51,6 +53,8 @@ void	ft_move_s(t_game *game)
 		if (!ft_check_e(game, y + 1, x))
 		{
 			game->player->y += 1;
+			if (game->map->maps[y][x] != 'P')
+				game->map->maps[y][x] = '1';
 			ft_check_c(game);
 			game->player->move = TRUE;
 			game->player->nbr_count += 1;
@@ -72,6 +76,8 @@ void	ft_move_a(t_game *game)
 		if (!ft_check_e(game, y, x - 1))
 		{
 			game->player->x -= 1;
+			if (game->map->maps[y][x] != 'P')
+				game->map->maps[y][x] = '1';
 			ft_check_c(game);
 			game->player->move = TRUE;
 			game->player->nbr_count += 1;
@@ -93,6 +99,8 @@ void	ft_move_d(t_game *game)
 		if (!ft_check_e(game, y, x + 1))
 		{
 			game->player->x += 1;
+			if (game->map->maps[y][x] != 'P')
+				game->map->maps[y][x] = '1';
 			ft_check_c(game);
 			game->player->move = TRUE;
 			game->player->nbr_count += 1;

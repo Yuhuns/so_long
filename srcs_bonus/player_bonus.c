@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 21:54:21 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/29 19:22:35 by awallet          ###   ########.fr       */
+/*   Updated: 2022/07/30 15:10:21 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ void	ft_anti_afk(t_game *game)
 	{
 		if (game->player->anti_afk == -1)
 			ft_printf("[ANTI-AFK]\nINIT\n");
-		else if (game->player->anti_afk == 1000)
+		else if (game->player->anti_afk == 800)
 			ft_printf("[ANTI-AFK]\nAre you alive ? Move if you want to live !\n");
-		else if (game->player->anti_afk == 4000)
+		else if (game->player->anti_afk == 3000)
 		{
 			ft_printf("[ANTI-AFK]\nToo long AFK: CLOSE THE GAME\n");
 			ft_destroy(game);
