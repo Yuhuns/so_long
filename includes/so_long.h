@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:44:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/01 22:13:59 by awallet          ###   ########.fr       */
+/*   Updated: 2022/08/01 22:36:25 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "../mlx_linux/mlx.h"
 
 //UTILS_DEFINE
-# define VERSION "SO_LONG: MICE 0.8a (Linux)"
+# define VERSION "SO_LONG: MICE 0.8b (Linux)"
 # define EXT ".ber"
 # define MAX_WIDTH 1840
 # define MAX_HEIGTH 960

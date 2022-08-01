@@ -30,8 +30,11 @@ SRC_BONUS =	./srcs_bonus/main_bonus.c \
 	./srcs_bonus/enemy_bonus.c \
 
 OBJ = $(SRC:.c=.o)
+
 DEPS = $(OBJ:.o=.d)
+
 DEPS_BONUS = $(OBJ_BONUS:.o=.d)
+
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 CC = gcc
@@ -49,8 +52,8 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ)  -Llibft -lft -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lX11 -lXext -lm -lz -o $(NAME)
 
 $(NAME_BONUS): $(OBJ_BONUS) 
-	make -C libft
-	make -C mlx_linux
+	$(MAKE) -C libft
+	$(MAKE) -C mlx_linux
 	$(CC) $(OBJ_BONUS) -Llibft -lft -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lX11 -lXext -lm -lz -o $(NAME_BONUS)
 
 clean:
@@ -58,8 +61,8 @@ clean:
 	rm -f $(OBJ_BONUS)
 	rm -f $(DEPS_BONUS)
 	rm -f $(DEPS)
-	make -C libft clean
-	make -C mlx_linux clean
+	$(MAKE) -C libft clean
+	$(MAKE) -C mlx_linux clean
 
 norm:
 	norminette ./srcs/ ./includes ./libft ./srcs_bonus
