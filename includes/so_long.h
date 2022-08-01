@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:44:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 23:03:04 by awallet          ###   ########.fr       */
+/*   Updated: 2022/08/01 17:28:51 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef enum e_reason
 	T_MAP = 101,
 	T_SIZE_LINE = 102,
 	T_SIZE_MAP = 103,
+	C_MAP_OK = 12,
 	C_DESTROY = 11,
 	C_KEY = 10,
 	C_BAD_MAP_WALL = 9,
@@ -65,6 +66,7 @@ typedef struct s_map
 	int		nb_c;
 	int		nb_p;
 	int		nb_e;
+	int		status;
 	void	*wall;
 	void	*collectable;
 	void	*exit;
@@ -93,7 +95,7 @@ typedef struct s_game
 }	t_game;
 
 //UTILS
-# define VERSION "SO_LONG: MICE 0.7b (Linux)"
+# define VERSION "SO_LONG: MICE 0.8 (Linux)"
 # define EXT ".ber"
 # define MAX_WIDTH 1650
 # define MAX_HEIGTH 768

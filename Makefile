@@ -41,7 +41,7 @@ all: $(NAME)
 bonus : $(NAME_BONUS)
 
 %.o: %.c
-	$(CC) -g3 -Wall -Wextra -Werror -I/usr/include -Ilibft -Imlx_linux -MMD -c $< -o $@
+	$(CC) -Wall -Wextra -Werror -I/usr/include -Ilibft -Imlx_linux -MMD -c $< -o $@
 
 $(NAME): $(OBJ) 
 	$(MAKE) -C libft

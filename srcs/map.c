@@ -6,31 +6,28 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 05:10:54 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 21:37:31 by awallet          ###   ########.fr       */
+/*   Updated: 2022/08/01 17:20:53 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-//SECU nbr_line
-//CMD: ln -s /dev/urandom rand_map.ber | ./so_long ./rand_map.ber
 static void	ft_read_map(int fd, t_game *game)
 {
 	char	*map_line;
 	char	*line;
 	int		nbr_line;
 
-	nbr_line = 0;
+	nbr_line = -1;
 	map_line = NULL;
 	line = NULL;
-	while (TRUE)
+	while (++nbr_line < 100)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		else if (nbr_line >= 500)
-			ft_close(game, C_BAD_MAP);
-		nbr_line++;
+		if (line[0] == '\n')
+			game->map.status = C_BAD_MAP;
 		map_line = ft_strjoin_sl(map_line, line, '=');
 		free(line);
 	}
@@ -86,7 +83,7 @@ int	ft_check_map(t_game *game)
 	int	x;
 	int	y;
 
-	if (!game->map.maps)
+	if (!game->map.maps || game->map.status != C_MAP_OK)
 		return (FALSE);
 	y = 0;
 	game->map.width = ft_strlen_sl(game->map.maps[y]);
@@ -120,6 +117,7 @@ void	ft_init_map(char *map_file, t_game *game)
 	game->map.nb_c = 0;
 	game->map.nb_p = 0;
 	game->map.nb_e = 0;
+	game->map.status = C_MAP_OK;
 	ft_read_map(fd, game);
 	if (ft_check_map(game) == FALSE)
 		ft_close(game, C_BAD_MAP);

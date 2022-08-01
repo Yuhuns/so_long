@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 01:01:19 by awallet           #+#    #+#             */
-/*   Updated: 2022/07/30 23:07:17 by awallet          ###   ########.fr       */
+/*   Updated: 2022/08/01 15:59:37 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_arounded_wall(t_game *game, int y, int x)
 		&& game->map.maps[y][x - 1] == '1'
 		&& game->map.maps[y][x + 1] == '1')
 	{
-		ft_printf("GAME OVER\nBlocked by 4 walls...");
+		ft_printf("GAME OVER\nBlocked by 4 walls...\n");
 		ft_destroy(game);
 	}
 }
