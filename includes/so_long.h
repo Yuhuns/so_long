@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 13:44:23 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/01 17:28:51 by awallet          ###   ########.fr       */
+/*   Updated: 2022/08/01 22:13:59 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 # include <fcntl.h>
 # include "../mlx_linux/mlx.h"
 
+//UTILS_DEFINE
+# define VERSION "SO_LONG: MICE 0.8a (Linux)"
+# define EXT ".ber"
+# define MAX_WIDTH 1840
+# define MAX_HEIGTH 960
+# define MIN_WIDTH 336
+# define MIN_HEIGTH 144
+# define MULT 48
+
+//KEY_GAME
 typedef enum e_key
 {
 	W = 119,
@@ -31,12 +41,14 @@ typedef enum e_key
 	CTRL = 65507
 }	t_key;
 
+//BOOLEAN
 typedef enum e_bool
 {
 	TRUE = 1,
 	FALSE = 0
 }	t_bool;
 
+//REASON
 typedef enum e_reason
 {
 	T_COUNT = 100,
@@ -58,6 +70,7 @@ typedef enum e_reason
 	E_SUCC = 0
 }	t_reason;
 
+//MAP_STRUCT
 typedef struct s_map
 {
 	char	**maps;
@@ -72,6 +85,7 @@ typedef struct s_map
 	void	*exit;
 }	t_map;
 
+//PLAYER_STRUCT
 typedef struct s_player
 {
 	void	*sprite[11];
@@ -85,6 +99,7 @@ typedef struct s_player
 	int		can_exit;
 }	t_player;
 
+//GAME_STRUCT
 typedef struct s_game
 {
 	t_player	player;
@@ -93,15 +108,6 @@ typedef struct s_game
 	void		*win;
 	int			img_size;
 }	t_game;
-
-//UTILS
-# define VERSION "SO_LONG: MICE 0.8 (Linux)"
-# define EXT ".ber"
-# define MAX_WIDTH 1650
-# define MAX_HEIGTH 768
-# define MIN_WIDTH 336
-# define MIN_HEIGTH 144
-# define MULT 48
 
 //UTILS
 char	*ft_strjoin_sl(char *s1, char *s2, char charset);
